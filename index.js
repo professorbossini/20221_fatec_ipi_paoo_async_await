@@ -1,3 +1,55 @@
+//async e await
+function fatorial (n){
+    if (n < 0) return Promise.reject("Valor não pode ser negativo")
+    let res = 1
+    for (let i = 2; i <= n; i++) res *= i;
+    return Promise.resolve(res)
+}
+
+async function chamadaComAsyncAwait(){
+    try{
+        const f1 = await fatorial(10)
+        console.log(f1)
+        const f2 = await fatorial(-10)
+        console.log(f2)
+    }
+    catch (e){
+        console.log("Erro: " + e)
+    }
+}
+
+chamadaComAsyncAwait()
+
+// function chamadaComThenECatch(){
+//     fatorial(10)
+//         .then(res => console.log (res))
+//         .catch(erro => console.log ("Erro: " + erro))
+    
+//     fatorial(-10)
+//         .then (res => console.log (res))
+//         .catch (erro => console.log (erro))
+// }
+
+// async function hello (nome){
+//     return `Hello, ${nome}`
+// }
+// hello("joão").then(res => console.log (res))
+
+// function hello (nome){
+//     return new Promise (function (resolve, reject){
+//         resolve(`Hello, ${nome}`)
+//     })
+// }
+
+// hello("João").then (res => console.log (res))
+
+// function hello (nome){
+//     return `Hello, ${nome}`
+// }
+
+// const resultado = hello("João")
+// console.log(resultado)
+
 // require('dotenv').config()
 // const axios = require ('axios')
 // // const pessoa = {
